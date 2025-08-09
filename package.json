@@ -1,0 +1,82 @@
+{
+  "name": "eqpad",
+  "productName": "EQPad",
+  "version": "1.0.0",
+  "description": "My Little Pony themed story platform with Equestria Daily integration",
+  "main": "main.js",
+  "author": {
+    "name": "EQPad Development Team",
+    "email": "dev@eqpad.com"
+  },
+  "license": "MIT",
+  "homepage": "https://eqpad.com",
+  "keywords": [
+    "electron",
+    "my-little-pony",
+    "fanfiction",
+    "stories",
+    "equestria-daily",
+    "desktop-app"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-deb": "electron-builder --linux deb",
+    "dist": "npm run build-deb",
+    "postinstall": "electron-builder install-app-deps",
+    "clean": "rm -rf dist build"
+  },
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.eqpad.desktop",
+    "productName": "EQPad",
+    "copyright": "Copyright © 2024 EQPad Team",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "styles.css",
+      "script.js",
+      "assets/**/*",
+      "!**/node_modules/**",
+      "!dist/**",
+      "!build/**",
+      "!*.md",
+      "!.gitignore",
+      "!package-lock.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Office",
+      "description": "My Little Pony themed story platform with Equestria Daily integration",
+      "desktop": {
+        "Name": "EQPad",
+        "Comment": "Discover and read MLP fan fiction stories",
+        "Keywords": "mlp;fanfiction;stories;equestria;pony;",
+        "StartupWMClass": "EQPad"
+      },
+      "icon": "assets/icon.png",
+      "executableName": "eqpad",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "synopsis": "Desktop application for MLP fan fiction stories"
+    },
+    "deb": {
+      "compression": "gz"
+    },
+    "compression": "maximum",
+    "publish": null
+  }
+}

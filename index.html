@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQPad - Equestria's Premier Story Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="EQPad - Discover, read, and share My Little Pony fan fiction stories in Equestria's premier story platform">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="cutie-mark">✨</div>
+                <h1>EQPad</h1>
+                <p>Loading magical stories...</p>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <span class="logo-star">✨</span>
+                    <span class="brand-text">EQPad</span>
+                </div>
+            </div>
+            
+            <div class="nav-search">
+                <div class="search-container">
+                    <input type="text" id="global-search" placeholder="Search stories, authors, characters..." class="search-input">
+                    <button id="search-btn" class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="nav-btn" id="write-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    Write
+                </button>
+                <button class="nav-btn" id="library-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    Library
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn" id="user-menu-btn">
+                        <div class="user-avatar">🦄</div>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="#" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="#" class="dropdown-item">Help</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Sign Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Welcome to <span class="brand-highlight">EQPad</span></h1>
+                    <p class="hero-subtitle">Discover magical stories from Equestria and beyond. Join thousands of writers sharing their My Little Pony adventures.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" id="start-reading">Start Reading</button>
+                        <button class="btn btn-secondary" id="start-writing">Start Writing</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="element star">✨</div>
+                        <div class="element heart">💖</div>
+                        <div class="element moon">🌙</div>
+                        <div class="element sun">☀️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="content-nav">
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-section="discover">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10,8 16,12 10,16 10,8"></polygon>
+                    </svg>
+                    Discover
+                </button>
+                <button class="tab-btn" data-section="browse">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    Browse
+                </button>
+                <button class="tab-btn" data-section="categories">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Categories
+                </button>
+                <button class="tab-btn" data-section="characters">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Characters
+                </button>
+            </div>
+        </nav>
+
+        <!-- Content Sections -->
+        <div class="content-container">
+            <!-- Discover Section -->
+            <section class="content-section active" id="discover">
+                <div class="section-header">
+                    <h2>Featured Stories</h2>
+                    <div class="section-controls">
+                        <select id="sort-select" class="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="recent">Recently Updated</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="stories-grid" class="stories-grid">
+                    <!-- Stories will be loaded here -->
+                </div>
+                <div class="load-more-container">
+                    <button id="load-more-btn" class="btn btn-secondary">Load More Stories</button>
+                </div>
+            </section>
+
+            <!-- Browse Section -->
+            <section class="content-section" id="browse">
+                <div class="section-header">
+                    <h2>Browse Stories</h2>
+                    <div class="browse-filters">
+                        <select class="filter-select" id="rating-filter">
+                            <option value="">All Ratings</option>
+                            <option value="everyone">Everyone</option>
+                            <option value="teen">Teen</option>
+                            <option value="mature">Mature</option>
+                        </select>
+                        <select class="filter-select" id="status-filter">
+                            <option value="">All Status</option>
+                            <option value="complete">Complete</option>
+                            <option value="incomplete">In Progress</option>
+                            <option value="hiatus">On Hiatus</option>
+                        </select>
+                        <select class="filter-select" id="length-filter">
+                            <option value="">All Lengths</option>
+                            <option value="short">Short (< 5k words)</option>
+                            <option value="medium">Medium (5k-50k words)</option>
+                            <option value="long">Long (> 50k words)</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="browse-results" class="stories-grid">
+                    <!-- Browse results will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="content-section" id="categories">
+                <div class="section-header">
+                    <h2>Story Categories</h2>
+                    <p class="section-subtitle">Explore stories by genre and theme</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="adventure">
+                        <div class="category-icon">🗺️</div>
+                        <h3>Adventure</h3>
+                        <p>Epic quests and thrilling journeys across Equestria</p>
+                    </div>
+                    <div class="category-card" data-category="romance">
+                        <div class="category-icon">💕</div>
+                        <h3>Romance</h3>
+                        <p>Love stories and heartwarming relationships</p>
+                    </div>
+                    <div class="category-card" data-category="comedy">
+                        <div class="category-icon">😄</div>
+                        <h3>Comedy</h3>
+                        <p>Funny and lighthearted tales that bring joy</p>
+                    </div>
+                    <div class="category-card" data-category="drama">
+                        <div class="category-icon">🎭</div>
+                        <h3>Drama</h3>
+                        <p>Emotional stories with depth and meaning</p>
+                    </div>
+                    <div class="category-card" data-category="slice-of-life">
+                        <div class="category-icon">🏠</div>
+                        <h3>Slice of Life</h3>
+                        <p>Everyday moments and peaceful stories</p>
+                    </div>
+                    <div class="category-card" data-category="dark">
+                        <div class="category-icon">🌑</div>
+                        <h3>Dark</h3>
+                        <p>Mature themes and serious storytelling</p>
+                    </div>
+                    <div class="category-card" data-category="alternate-universe">
+                        <div class="category-icon">🌌</div>
+                        <h3>Alternate Universe</h3>
+                        <p>What if scenarios and different worlds</p>
+                    </div>
+                    <div class="category-card" data-category="crossover">
+                        <div class="category-icon">🌟</div>
+                        <h3>Crossover</h3>
+                        <p>MLP meets other fandoms and universes</p>
+                    </div>
+                    <div class="category-card" data-category="equestria-daily">
+                        <div class="category-icon">📰</div>
+                        <h3>Equestria Daily</h3>
+                        <p>Featured fanfictions from the MLP community hub</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="content-section" id="characters">
+                <div class="section-header">
+                    <h2>Popular Characters</h2>
+                    <p class="section-subtitle">Find stories featuring your favorite ponies</p>
+                </div>
+                <div class="characters-grid">
+                    <div class="character-card" data-character="twilight-sparkle">
+                        <div class="character-avatar">🦄</div>
+                        <h3>Twilight Sparkle</h3>
+                        <p class="character-title">Princess of Friendship</p>
+                        <div class="character-stats">
+                            <span class="story-count">1,247 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="rainbow-dash">
+                        <div class="character-avatar">🌈</div>
+                        <h3>Rainbow Dash</h3>
+                        <p class="character-title">Element of Loyalty</p>
+                        <div class="character-stats">
+                            <span class="story-count">952 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="applejack">
+                        <div class="character-avatar">🍎</div>
+                        <h3>Applejack</h3>
+                        <p class="character-title">Element of Honesty</p>
+                        <div class="character-stats">
+                            <span class="story-count">731 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="rarity">
+                        <div class="character-avatar">💎</div>
+                        <h3>Rarity</h3>
+                        <p class="character-title">Element of Generosity</p>
+                        <div class="character-stats">
+                            <span class="story-count">689 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="fluttershy">
+                        <div class="character-avatar">🦋</div>
+                        <h3>Fluttershy</h3>
+                        <p class="character-title">Element of Kindness</p>
+                        <div class="character-stats">
+                            <span class="story-count">845 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="pinkie-pie">
+                        <div class="character-avatar">🎈</div>
+                        <h3>Pinkie Pie</h3>
+                        <p class="character-title">Element of Laughter</p>
+                        <div class="character-stats">
+                            <span class="story-count">634 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="princess-celestia">
+                        <div class="character-avatar">☀️</div>
+                        <h3>Princess Celestia</h3>
+                        <p class="character-title">Ruler of Equestria</p>
+                        <div class="character-stats">
+                            <span class="story-count">521 stories</span>
+                        </div>
+                    </div>
+                    <div class="character-card" data-character="princess-luna">
+                        <div class="character-avatar">🌙</div>
+                        <h3>Princess Luna</h3>
+                        <p class="character-title">Princess of the Night</p>
+                        <div class="character-stats">
+                            <span class="story-count">467 stories</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Story Modal -->
+    <div id="story-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="story-details" class="story-details">
+                <!-- Story details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EQPad</h3>
+                <p>Equestria's premier story platform for My Little Pony fan fiction.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">Discord</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Reddit</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a href="#" class="footer-link">Writing Guides</a>
+                <a href="#" class="footer-link">Forums</a>
+                <a href="#" class="footer-link">Events</a>
+                <a href="#" class="footer-link">Support</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">DMCA</a>
+                <a href="#" class="footer-link">Guidelines</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EQPad. Built with magic and friendship. 🦄✨</p>
+        </div>
+    </footer>
+
+    <script src="script-enhanced.js"></script>
+</body>
+</html>
